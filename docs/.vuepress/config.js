@@ -176,21 +176,12 @@ module.exports = {
     ],
     [
       'vuepress-plugin-comment', // 评论
-      // {
-      //   choosen: 'valine',
-      //   options: {
-      //     el: '#valine-vuepress-comment',
-      //     appId: 'qnS1jobNF7CROIQ0XYWBnVOH-gzGzoHsz',
-      //     appKey: 'LIKa0ePqFMkglQfOkN0JNK6c',
-      //     avatar: 'monsterid'
-      //   }
-      // },
       {
         choosen: 'gitalk',
         options: {
           clientID: 'a6e1355287947096b88b',
           clientSecret: 'f0e77d070fabfcd5af95bebb82b2d574d7248d71',
-          repo: 'blog-gitalk-comment', // GitHub 仓库
+          repo: 'vuepress-blog', // GitHub 仓库
           owner: 'xugaoyi', // GitHub仓库所有者
           admin: ['xugaoyi'], // 对仓库有写权限的人
           // distractionFreeMode: true,
