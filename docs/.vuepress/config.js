@@ -171,7 +171,7 @@ module.exports = {
     [
       'vuepress-plugin-baidu-tongji', // 百度统计
       {
-        hm: '503f098e7e5b3a5b5d8c5fc2938af002'
+        hm: 'e5e987adfe48540aedd9ab716d0d4cb5'
       }
     ],
     [
@@ -194,7 +194,7 @@ module.exports = {
         }
       }
     ],
-    '@vuepress/last-updated' // "上次更新"时间格式
+    '@vuepress/last-updated' // "上次更新"
   ]
   // configureWebpack: {
   //   //webpack别名 如![Image from alias](~@alias/image.png)
