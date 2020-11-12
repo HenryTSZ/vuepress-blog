@@ -6,7 +6,7 @@ module.exports = [
     items: [
       { text: 'JavaScript', link: '/pages/3037d9/' }, // 这些link是在相应md文件定义的永久链接。另外，注意结尾是有斜杠的
       { text: 'Vue', link: '/pages/baff20/' },
-      { text: 'ElementUI', link: '/pages/e29708' }
+      { text: 'ElementUI', link: '/pages/e29708/' }
     ]
   },
   {
@@ -14,7 +14,7 @@ module.exports = [
     link: '/ui/',
     items: [
       { text: 'HTML', link: '/pages/1b1828/' },
-      { text: 'CSS', link: '/pages/cfc63b/' }
+      { text: 'CSS', link: '/pages/8f2842/' }
     ]
   },
   {
@@ -25,7 +25,7 @@ module.exports = [
       { text: 'GitHub技巧', link: '/pages/960dcf/' },
       { text: 'Nodejs', link: '/pages/0758c6/' },
       { text: 'Chrome', link: '/pages/980078/' },
-      { text: 'Other', link: '/pages/24b988' }
+      { text: 'Other', link: '/pages/24b988/' }
     ]
   },
   {

@@ -2,9 +2,10 @@
   "name": "vuepress-blog",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "dev": "vuepress dev docs --no-cache",
     "build": "vuepress build docs",
     "editFm": "node utils/editFrontmatter.js",
+    "rename": "node utils/rename.js",
     "baiduPush": "node utils/baiduPush.js https://tszv.now.sh && bash baiduPush.sh"
   },
   "license": "MIT",
