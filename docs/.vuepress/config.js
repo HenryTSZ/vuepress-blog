@@ -4,9 +4,7 @@ module.exports = {
   title: 'Henry',
   description:
     'web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github等技术文章。', // 描述,以 <meta> 标签渲染到页面html中
-  // base: '/', // '/<github仓库名>/'， 默认'/'
   head: [
-    // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
     ['link', { rel: 'icon', href: '/img/favicon.png' }], //favicons，资源放在public文件夹
     [
       'meta',
@@ -18,14 +16,12 @@ module.exports = {
     ],
     ['meta', { name: 'baidu-site-verification', content: 'code-C3V9fjhTFV' }], // 百度统计的站点拥有者验证
     ['meta', { name: 'theme-color', content: '#11a8cd' }] // 移动浏览器主题颜色
-    // ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'}], // 移动端阻止页面缩放
   ],
   markdown: {
     lineNumbers: true // 代码行号
   },
 
   theme: 'vdoing', // 使用依赖包主题
-  // theme: require.resolve('../../theme-vdoing'), // 使用本地主题
 
   themeConfig: {
     // 主题配置
@@ -105,6 +101,7 @@ module.exports = {
     }
   },
   plugins: [
+    'vuepress-plugin-smooth-scroll',
     [
       'thirdparty-search',
       {
