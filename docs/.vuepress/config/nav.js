@@ -6,7 +6,8 @@ module.exports = [
     items: [
       { text: 'JavaScript', link: '/pages/3037d9/' }, // 这些link是在相应md文件定义的永久链接。另外，注意结尾是有斜杠的
       { text: 'Vue', link: '/pages/baff20/' },
-      { text: 'ElementUI', link: '/pages/e29708/' }
+      { text: 'ElementUI', link: '/pages/e29708/' },
+      { text: 'React', link: '/pages/710b50/' }
     ]
   },
   {
