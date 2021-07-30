@@ -36,6 +36,7 @@ module.exports = [
     items: [
       { text: 'Mac', link: '/pages/baa026/' },
       { text: 'Windows', link: '/pages/368ccf/' },
+      { text: 'Linux', link: '/pages/6ce484'},
       { text: 'VSCode', link: '/pages/6f52fa/' }
     ]
   },
