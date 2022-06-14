@@ -2,9 +2,9 @@ module.exports = [
   { text: '首页', link: '/' },
   {
     text: '前端',
-    link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
+    link: '/web/', //目录页链接，此处 link 是 vdoing 主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
     items: [
-      { text: 'JavaScript', link: '/pages/3037d9/' }, // 这些link是在相应md文件定义的永久链接。另外，注意结尾是有斜杠的
+      { text: 'JavaScript', link: '/pages/3037d9/' }, // 这些 link 是在相应 md 文件定义的永久链接。另外，注意结尾是有斜杠的
       { text: 'TypeScript', link: '/pages/8086ae/' },
       { text: 'Vue', link: '/pages/baff20/' },
       { text: 'ElementUI', link: '/pages/e29708/' },
@@ -24,7 +24,7 @@ module.exports = [
     link: '/technology/',
     items: [
       { text: '技术文档', link: '/pages/dcd231/' },
-      { text: 'GitHub技巧', link: '/pages/960dcf/' },
+      { text: 'GitHub 技巧', link: '/pages/960dcf/' },
       { text: 'Nodejs', link: '/pages/0758c6/' },
       { text: 'Chrome', link: '/pages/980078/' },
       { text: 'Other', link: '/pages/24b988/' }
@@ -37,7 +37,8 @@ module.exports = [
       { text: 'Mac', link: '/pages/baa026/' },
       { text: 'Windows', link: '/pages/368ccf/' },
       { text: 'Linux', link: '/pages/6ce484/'},
-      { text: 'VSCode', link: '/pages/6f52fa/' }
+      { text: 'VSCode', link: '/pages/6f52fa/' },
+      { text: 'Vim', link: '/pages/6ccd0f/'}
     ]
   },
   { text: '关于', link: '/about/' },
@@ -47,7 +48,7 @@ module.exports = [
     items: [
       { text: '网站', link: '/pages/beb6c0/' },
       { text: '资源', link: '/pages/eee83a/' },
-      { text: 'Vue资源', link: '/pages/12df8a/' }
+      { text: 'Vue 资源', link: '/pages/12df8a/' }
     ]
   },
   {
