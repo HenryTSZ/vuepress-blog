@@ -1,5 +1,4 @@
 module.exports = [
-  { text: '首页', link: '/' },
   {
     text: '前端',
     link: '/web/', //目录页链接，此处 link 是 vdoing 主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
@@ -27,6 +26,7 @@ module.exports = [
       { text: 'GitHub 技巧', link: '/pages/960dcf/' },
       { text: 'Nodejs', link: '/pages/0758c6/' },
       { text: 'Chrome', link: '/pages/980078/' },
+      { text: 'VSCode', link: '/pages/6f52fa/' },
       { text: 'Other', link: '/pages/24b988/' }
     ]
   },
@@ -36,28 +36,24 @@ module.exports = [
     items: [
       { text: 'Mac', link: '/pages/baa026/' },
       { text: 'Windows', link: '/pages/368ccf/' },
-      { text: 'Linux', link: '/pages/6ce484/'},
-      { text: 'VSCode', link: '/pages/6f52fa/' },
-      { text: 'Vim', link: '/pages/6ccd0f/'}
-    ]
-  },
-  { text: '关于', link: '/about/' },
-  {
-    text: '收藏',
-    link: '/pages/beb6c0/',
-    items: [
-      { text: '网站', link: '/pages/beb6c0/' },
-      { text: '资源', link: '/pages/eee83a/' },
-      { text: 'Vue 资源', link: '/pages/12df8a/' }
+      { text: 'Linux', link: '/pages/6ce484/' }
     ]
   },
   {
-    text: '索引',
-    link: '/archives/',
+    text: '键盘侠',
+    link: '/keyboardMan/',
+    items: [{ text: 'Vim', link: '/pages/6ccd0f/' }]
+  },
+  {
+    text: '关于',
+    link: '/about/',
     items: [
       { text: '分类', link: '/categories/' },
       { text: '标签', link: '/tags/' },
-      { text: '归档', link: '/archives/' }
+      { text: '归档', link: '/archives/' },
+      { text: '网站', link: '/pages/beb6c0/' },
+      { text: '资源', link: '/pages/eee83a/' },
+      { text: 'Vue 资源', link: '/pages/12df8a/' }
     ]
   }
 ]
