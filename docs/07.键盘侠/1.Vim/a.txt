@@ -1,54 +1,49 @@
+
 ## 任务点
 
-### 转到括号
+通过 `commands` 配置实现 `vim` 调用 `vscode` 快捷键，并且可以组合 `vim` 的动作
 
-- `%`: 转到括号
+把 `vscode` 相对复杂或者键盘上不方便操作的快捷键组合改为 `vim` 方式的简单按键组合
 
-### [vim-indent-object](https://github.com/VSCodeVim/Vim#vim-indent-object):
+映射 `command` 时，可以从 `Preference: Open Keyboard ShortCuts (Cmd K Cmd S)` 中找 `command ID` 也可以用 `command` 的 `JSON` 对象（用来绕开 `bug`）
 
-将当前缩进级别的代码块视为文本对象，原理就是根据缩进来操作的，只要缩进范围大于等于光标当前行，都会被当成一个文本对象
+比如：
 
-- `<operator>ii`: 操作当前缩进级别的代码块
-- `<operator>ai`: 操作当前缩进级别的代码块和上面一行
-- `<operator>aI`: 操作当前缩进级别的代码块和上下两行
-
-### 删除函数
-
-- `dap`: 基于段落 text-object; 如果这个函数体内没有空行，函数整体上下都有空行，可以删除，否则不行
-- `daI`: 基于 vim-indent-object; 代码缩进正常（经过格式化），需要在函数体内执行，不能在函数头执行；可以改键：ai -> aI; 这个其实不止可以删除函数，if 判断，多行对象/数组...，只要是开头和结尾的缩进小于中间的缩进都可以用这个
-- `V$%d`: 基于 %; 必须在函数头执行；V 先选中当前行，`$` 移动到行尾，光标在 {，% 匹配结束的 }，d 删除；当函数的参数太多导致换行后，`$` 移动到行尾时，光标是在 (，% 匹配到是 )，我们还需要执行 `$%` 来匹配结束的 }; 可以改键：`<leader> d f` -> `V$%d`
-
-ai -> aI 改键：
+- `<Leader> f d`: 格式化
+- `<Leader> r n`: rename
+- `<Leader> [`: 折叠代码
 
 ```json
-// pending 模式改键
-"vim.operatorPendingModeKeyBindings": [
-  {
-    "before": ["a", "i"],
-    "after": ["a", "I"]
-  }
-],
-// visual 模式改键
-"vim.visualModeKeyBindings": [
-  {
-    "before": ["a", "i"],
-    "after": ["a", "I"]
-  }
-],
-```
-
-`<leader> d f` -> `V$%d` 改键：
-
-```json
-// normal 模式改键
 "vim.normalModeKeyBindings": [
   {
-    "before": ["<Leader>", "d", "f"],
-    "after": ["V", "$", "%", "d"]
+    "before": ["<Leader>", "f", "d"],
+    "commands": ["editor.action.formatDocument"]
   },
   {
-    "before": ["<Leader>", "d", "d", "f"],
-    "after": ["V", "$", "%", "$", "%", "d"]
+    "before": ["<Leader>", "r", "n"],
+    "commands": ["editor.action.rename"]
+  },
+  {
+    "before": ["<Leader>", "["],
+    "commands": [
+      {
+        "command": "editor.fold"
+      },
+      {
+        "command": "vim.remap",
+        "args": {
+          "after": ["$", "%"]
+        }
+      }
+    ]
+  },
+  {
+    "before": ["<Leader>", "]"],
+    "commands": [
+      {
+        "command": "editor.unfold"
+      }
+    ]
   }
 ]
 ```
