@@ -1,49 +1,145 @@
-
 ## 任务点
 
-通过 `commands` 配置实现 `vim` 调用 `vscode` 快捷键，并且可以组合 `vim` 的动作
+### 切到 files explorer 区域
 
-把 `vscode` 相对复杂或者键盘上不方便操作的快捷键组合改为 `vim` 方式的简单按键组合
+vim: `shift + left`
 
-映射 `command` 时，可以从 `Preference: Open Keyboard ShortCuts (Cmd K Cmd S)` 中找 `command ID` 也可以用 `command` 的 `JSON` 对象（用来绕开 `bug`）
+`keybindings.json`:
 
-比如：
+```json
+{
+  "key": "shift+left",
+  "command": "vim.remap",
+  "when": "vim.mode == 'Normal'",
+  "args": {
+    "after": ["<c-w>", "h"]
+  }
+}
+```
 
-- `<Leader> f d`: 格式化
-- `<Leader> r n`: rename
-- `<Leader> [`: 折叠代码
+vscode: 原生：mac: `cmd + shift + e`, windows: `ctrl + shift + e`；改键：`ctrl + ;`, 可以在 `explorer` 和 `editor` 来回切换
+
+`keybindings.json` 替换原生改键版 (mac)：
+
+```json
+{
+  "key": "ctrl+;",
+  "command": "workbench.view.explorer",
+  "when": "viewContainer.workbench.view.explorer.enabled"
+},
+{
+  "key": "shift+cmd+e",
+  "command": "-workbench.view.explorer",
+  "when": "viewContainer.workbench.view.explorer.enabled"
+}
+```
+
+不替换原生改键版（与原生共存）：
+
+```json
+{
+  "key": "ctrl+;",
+  "command": "workbench.view.explorer",
+  "when": "viewContainer.workbench.view.explorer.enabled"
+}
+```
+
+### 切到 editor 区域
+
+vim: `shift + right`
+
+```json
+{
+  "key": "shift+right",
+  "command": "vim.remap",
+  "when": "vim.mode == 'Normal'",
+  "args": {
+    "after": ["<c-w>", "l"]
+  }
+}
+```
+
+vscode: 原生：`cmd/ctrl + 1`; 改键：`ctrl + '`
+
+我感觉原生就挺好用，而且上面 `ctrl + ;` 也可以切换过来，故不改了；如果想改，参考上面即可
+
+### 在 explorer 移动光标和折叠展开
+
+- `j/k`: 上下移动
+- `h`: 折叠
+- `l`: 折叠/展开/打开文件
+
+### 创建文件
+
+在 `explorer`: `a`
+
+```json
+{
+  "key": "a",
+  "command": "explorer.newFile",
+  "when": "filesExplorerFocus && !inputFocus"
+}
+```
+
+在 `editor`: `<Leader> a`
 
 ```json
 "vim.normalModeKeyBindings": [
   {
-    "before": ["<Leader>", "f", "d"],
-    "commands": ["editor.action.formatDocument"]
-  },
-  {
-    "before": ["<Leader>", "r", "n"],
-    "commands": ["editor.action.rename"]
-  },
-  {
-    "before": ["<Leader>", "["],
-    "commands": [
-      {
-        "command": "editor.fold"
-      },
-      {
-        "command": "vim.remap",
-        "args": {
-          "after": ["$", "%"]
-        }
-      }
-    ]
-  },
-  {
-    "before": ["<Leader>", "]"],
-    "commands": [
-      {
-        "command": "editor.unfold"
-      }
-    ]
+    "before": ["<Leader>", "a"],
+    "commands": ["explorer.newFile"]
   }
 ]
+```
+
+vscode: `cmd + n`, 创建未命名的文件，需要自己保存是命名
+
+通过插件 [File Utils](https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils) 来创建：通过 `F1` 打开命令行，输入 `File Utils New File`
+
+### 创建文件夹
+
+在 `explorer`: `A`
+
+```json
+{
+  "key": "shift+a",
+  "command": "explorer.newFolder",
+  "when": "filesExplorerFocus && !inputFocus"
+}
+```
+
+在 `editor`: `<Leader> A`
+
+```json
+"vim.normalModeKeyBindings": [
+  {
+    "before": ["<Leader>", "A"],
+    "commands": ["explorer.newFolder"]
+  }
+]
+```
+
+通过插件 File Utils 来创建：通过 `F1` 打开命令行，输入 `File Utils New Folder`
+
+### 重命名
+
+原生：`Enter/F2`; 改键：`r`
+
+由于 `Enter` 已经很方便的，故我就不修改了
+
+### 删除
+
+原生：`cmd + backspace`: 直接删除，`opt + cmd + backspace`: 询问是否删除; 改键：`d`
+
+```json
+{
+  "key": "d",
+  "command": "deleteFile",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+},
+{
+  "key": "alt+cmd+backspace",
+  "command": "-deleteFile",
+  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+}
 ```
