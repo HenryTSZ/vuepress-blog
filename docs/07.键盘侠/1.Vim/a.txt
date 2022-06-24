@@ -1,145 +1,18 @@
-## 任务点
-
-### 切到 files explorer 区域
-
-vim: `shift + left`
-
-`keybindings.json`:
+映射命令：
 
 ```json
-{
-  "key": "shift+left",
-  "command": "vim.remap",
-  "when": "vim.mode == 'Normal'",
-  "args": {
-    "after": ["<c-w>", "h"]
+"vim.visualModeKeyBindings": [
+  {
+    "before": ["<Leader>", "/"],
+    "after": ["y", "/", "<C-r>", "\"", "<Enter>"]
   }
-}
-```
-
-vscode: 原生：mac: `cmd + shift + e`, windows: `ctrl + shift + e`；改键：`ctrl + ;`, 可以在 `explorer` 和 `editor` 来回切换
-
-`keybindings.json` 替换原生改键版 (mac)：
-
-```json
-{
-  "key": "ctrl+;",
-  "command": "workbench.view.explorer",
-  "when": "viewContainer.workbench.view.explorer.enabled"
-},
-{
-  "key": "shift+cmd+e",
-  "command": "-workbench.view.explorer",
-  "when": "viewContainer.workbench.view.explorer.enabled"
-}
-```
-
-不替换原生改键版（与原生共存）：
-
-```json
-{
-  "key": "ctrl+;",
-  "command": "workbench.view.explorer",
-  "when": "viewContainer.workbench.view.explorer.enabled"
-}
-```
-
-### 切到 editor 区域
-
-vim: `shift + right`
-
-```json
-{
-  "key": "shift+right",
-  "command": "vim.remap",
-  "when": "vim.mode == 'Normal'",
-  "args": {
-    "after": ["<c-w>", "l"]
-  }
-}
-```
-
-vscode: 原生：`cmd/ctrl + 1`; 改键：`ctrl + '`
-
-我感觉原生就挺好用，而且上面 `ctrl + ;` 也可以切换过来，故不改了；如果想改，参考上面即可
-
-### 在 explorer 移动光标和折叠展开
-
-- `j/k`: 上下移动
-- `h`: 折叠
-- `l`: 折叠/展开/打开文件
-
-### 创建文件
-
-在 `explorer`: `a`
-
-```json
-{
-  "key": "a",
-  "command": "explorer.newFile",
-  "when": "filesExplorerFocus && !inputFocus"
-}
-```
-
-在 `editor`: `<Leader> a`
-
-```json
+],
 "vim.normalModeKeyBindings": [
   {
-    "before": ["<Leader>", "a"],
-    "commands": ["explorer.newFile"]
+    "before": ["<Leader>", "/"],
+    "after": ["/", "<C-r>", "\"", "<Enter>"]
   }
 ]
 ```
 
-vscode: `cmd + n`, 创建未命名的文件，需要自己保存是命名
-
-通过插件 [File Utils](https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils) 来创建：通过 `F1` 打开命令行，输入 `File Utils New File`
-
-### 创建文件夹
-
-在 `explorer`: `A`
-
-```json
-{
-  "key": "shift+a",
-  "command": "explorer.newFolder",
-  "when": "filesExplorerFocus && !inputFocus"
-}
-```
-
-在 `editor`: `<Leader> A`
-
-```json
-"vim.normalModeKeyBindings": [
-  {
-    "before": ["<Leader>", "A"],
-    "commands": ["explorer.newFolder"]
-  }
-]
-```
-
-通过插件 File Utils 来创建：通过 `F1` 打开命令行，输入 `File Utils New Folder`
-
-### 重命名
-
-原生：`Enter/F2`; 改键：`r`
-
-由于 `Enter` 已经很方便的，故我就不修改了
-
-### 删除
-
-原生：`cmd + backspace`: 直接删除，`opt + cmd + backspace`: 询问是否删除; 改键：`d`
-
-```json
-{
-  "key": "d",
-  "command": "deleteFile",
-  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-},
-{
-  "key": "alt+cmd+backspace",
-  "command": "-deleteFile",
-  "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-}
-```
+在 `visual` 模式，在选中文本后，按下 `<Leader> /` 就可以快速搜索了；在 `normal` 模式，按下 `<Leader> /` 就可以快速搜索刚才复制或删除的文本
