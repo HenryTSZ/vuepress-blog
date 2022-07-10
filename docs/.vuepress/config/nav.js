@@ -42,9 +42,11 @@ module.exports = [
   {
     text: '键盘侠',
     link: '/keyboardMan/',
-    items: [{ text: 'Vim', link: '/pages/6ccd0f/' }],
-    items: [{ text: 'VSCode', link: '/pages/13d173/' }],
-    items: [{ text: 'Chrome', link: '/pages/a8daa5/' }]
+    items: [
+      { text: 'Vim', link: '/pages/6ccd0f/' },
+      { text: 'VSCode', link: '/pages/13d173/' },
+      { text: 'Chrome', link: '/pages/a8daa5/' }
+    ]
   },
   {
     text: '关于',
