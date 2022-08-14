@@ -45,7 +45,11 @@ module.exports = [
     items: [
       { text: 'Vim', link: '/pages/6ccd0f/' },
       { text: 'VSCode', link: '/pages/13d173/' },
-      { text: 'Chrome', link: '/pages/a8daa5/' }
+      { text: 'Chrome', link: '/pages/a8daa5/' },
+      { text: 'iTerm', link: '/pages/78481b/' },
+      { text: 'Mac', link: '/pages/a9c23b/' },
+      { text: 'Obsidian', link: '/pages/a9b133/' },
+      { text: 'lazygit', link: '/pages/5c3d43/' }
     ]
   },
   {
