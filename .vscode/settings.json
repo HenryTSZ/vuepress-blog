@@ -1,3 +1,4 @@
 {
-  "autocorrect.enable": true
+  "autocorrect.enable": true,
+  "commentTranslate.hover.enabled": true
 }
