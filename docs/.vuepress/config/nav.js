@@ -49,7 +49,8 @@ module.exports = [
       { text: 'iTerm', link: '/pages/78481b/' },
       { text: 'Mac', link: '/pages/a9c23b/' },
       { text: 'Obsidian', link: '/pages/a9b133/' },
-      { text: 'lazygit', link: '/pages/5c3d43/' }
+      { text: 'lazygit', link: '/pages/5c3d43/' },
+      { text: 'Vim 技巧', link: '/pages/09561a/'}
     ]
   },
   {
