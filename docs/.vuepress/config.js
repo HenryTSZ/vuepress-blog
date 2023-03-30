@@ -167,6 +167,7 @@ module.exports = {
       {
         choosen: 'gitalk',
         options: {
+          proxy: 'https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token',
           clientID: '34019b1155b0a6035864',
           clientSecret: '0f29fa313133201bd776003a28e2b5c9e58dae35',
           repo: 'vuepress-blog', // GitHub 仓库
