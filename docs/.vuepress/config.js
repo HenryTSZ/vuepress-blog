@@ -163,7 +163,7 @@ module.exports = {
       }
     ],
     [
-      'vuepress-plugin-comment', // 评论
+      'vuepress-plugin-comment-plus', // 评论
       {
         choosen: 'gitalk',
         options: {

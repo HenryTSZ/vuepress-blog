@@ -22,6 +22,7 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
-    "vuepress-plugin-comment": "^0.7.3"
+    "gitalk": "^1.8.0",
+    "vuepress-plugin-comment-plus": "^1.1.0"
   }
 }
